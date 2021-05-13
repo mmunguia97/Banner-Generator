@@ -1,4 +1,10 @@
 from helpers import *
+import twitter
+
+
+# Authenticate with Twitter API
+api = twitter.authenticate()
+
 
 # Open a random background
 color, theme = chooseBackground()
@@ -25,6 +31,9 @@ background = placeImages(background, theme)
 
 # Save a copy of the banner locally
 background.save('background.jpg')
+
+# Upload to Twitter
+twitter.upload('background.jpg', api)
 
 # View the final poster
 background.show()
